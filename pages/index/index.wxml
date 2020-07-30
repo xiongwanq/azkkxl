@@ -1,0 +1,36 @@
+<cu-custom bgColor="bg-gradual-blue">
+	<view slot="content">爱在可可西里</view>
+</cu-custom>
+ <video style="width: 100%" show-fullscreen-btn="{{false}}" autoplay="true" src="cloud://azkkxl-3.617a-azkkxl-3-1300045206/video/介绍视频.mp4" binderror="videoErrorCallback"></video>
+
+ <view wx:for="{{articleInfos}}" wx:key></view>
+
+<scroll-view scroll-x class="bg-white nav text-center">
+	<view bindtap="tabSelect" class="text-lg cu-item {{0==tabArr.tabCurrentIndex?'text-blue cur':''}}" data-id="0">概述</view>
+	<view bindtap="tabSelect" class="text-lg cu-item {{1==tabArr.tabCurrentIndex?'text-blue cur':''}}" data-id="1">旅游</view>
+</scroll-view>
+
+<swiper current="{{TabCur}}" style="height: {{clientHeight?clientHeight+'rpx':'auto'}}" bindchange="swiperChange">
+	<swiper-item>
+		<scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'rpx':'auto'}}" bindscrolltolower="scrollbot" >
+			<view wx:for="{{articleInfos}}" wx:if="{{item.type=='概述'}}" bindtap="toWxLink" data-link="{{item.linkUrl}}">
+				<view class="shadow-blur radius-sm bg-img bg-mask margin-tb-sm margin-lr-xl" style="background-image:url({{item.coverImgUrl}}); height:414rpx;">
+					<view class="padding-xl text-white">
+						<view class="padding-top-xl text-xl text-bold">{{item.title}}</view>
+					</view>
+				</view>
+			</view>
+		</scroll-view>
+	</swiper-item>
+	<swiper-item>
+		<scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}" bindscrolltolower="scrollbot" >
+			<view wx:for="{{articleInfos}}" wx:if="{{item.type=='旅游'}}" bindtap="toWxLink" data-link="{{item.linkUrl}}">
+				<view class="shadow-blur radius-sm bg-img bg-mask margin-tb-sm margin-lr-xl" style="background-image:url({{item.coverImgUrl}}); height:414rpx;">
+					<view class="padding-xl text-white">
+						<view class="padding-top-xl text-xl text-bold">{{item.title}}</view>
+					</view>
+				</view>
+			</view>
+		</scroll-view>
+	</swiper-item>
+</swiper>
