@@ -1,0 +1,49 @@
+<scroll-view scroll-y class="scrollPage">
+	<cu-custom bgColor="bg-gradual-blue">
+		<view slot="content">爱在可可西里</view>
+	</cu-custom>
+		<image style="width:1500rpx" src="cloud://azkkxl-3.617a-azkkxl-3-1300045206/miniPhoto/藏羚羊雕像.jpg" mode="widthFix" class="shadow shadow-xl bg-white"></image>
+
+	<view class="cu-list menu card-menu margin-top-sm margin-bottom-xl shadow-lg radius">
+		<view class="cu-item arrow">
+			<view class="content" bindtap="navigate">
+				<text class="cuIcon-locationfill text-cyan"></text>
+				<text class="text-grey">保护站地址</text>
+			</view>
+		</view>
+
+		<view class="cu-item arrow">
+			<view class="content" bindtap="CopyInfo" data-info="09798410618">
+				<text class="cuIcon-phone text-grey"></text>
+				<text class="text-grey">保护站电话</text>
+			</view>
+		</view>
+
+		<view class="cu-item arrow">
+			<view class="content" bindtap="showModal" data-modal="about">
+				<text class="cuIcon-group_fill text-blue"></text>
+				<text class="text-grey">关于我们</text>
+			</view>
+		</view>
+		<view class="cu-modal {{modalName=='about'?'show':''}}">
+			<view class="cu-dialog">
+				<view class="cu-bar bg-white justify-end">
+					<view class="content">关于我们</view>
+					<view class="action" bindtap="hideAbout">
+						<text class="cuIcon-close text-red"></text>
+					</view>
+				</view>
+				<view class="padding-xl">
+					南京航空航天大学爱在可可西里实践团队发起的高校联盟——呼吁大学生关爱藏羚羊，一起保护可可西里。
+				</view>
+			</view>
+		</view>
+
+		<view class="cu-item arrow">
+			<view class="content" bindtap="showQrcode">
+				<text class="cuIcon-qr_code text-red"></text>
+				<text class="text-grey">关注公众号</text>
+			</view>
+		</view>
+	</view>
+</scroll-view>
